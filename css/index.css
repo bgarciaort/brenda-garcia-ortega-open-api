@@ -65,7 +65,7 @@ footer {
   color: #33120e;
 }
 
-#cat-button {
+#cat-button, #bengal-button {
     width: 100px;
     height: 100px;
     background-image: url('images/kittyPaw.png');
@@ -85,7 +85,7 @@ footer {
     
 }
 
-#cat-button::before {
+#cat-button::before, #bengal-button::before {
     content: 'CLICK'; 
     font-size: 14px;
     font-weight: bold;
@@ -94,7 +94,7 @@ footer {
     z-index: 1; 
 }
 
-#cat-button:hover {
+#cat-button:hover, #bengal-button::hover {
     transform: scale(1.1);
 }
 

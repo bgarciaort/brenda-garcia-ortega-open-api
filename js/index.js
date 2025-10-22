@@ -46,3 +46,36 @@ copyright.style.fontSize = "15px"
 copyright.style.textAlign = 'right';
 copyright.style.marginRight = '20px';
 footer.appendChild(copyright);
+
+
+/** Breed Specific End Point - Bengal Cat  */
+
+const CAT_API_BREED_URL = "https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=beng"; 
+
+function fetchBengalImage(){
+    fetch(CAT_API_BREED_URL, {
+        headers: {
+            "x-api-key": API_KEY 
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+        return response.json(); 
+    })
+    .then(data => {
+        const imgElement = document.createElement('img');
+        imgElement.src = data[0].url;
+        const bengalContainer = document.getElementById('bengal-container');
+        bengalContainer.innerHTML = ''; 
+        bengalContainer.appendChild(imgElement);
+    })
+    .catch(error => {
+        console.error("An error occurred fetching your bengal cat:", error);
+    });
+}
+
+fetchBengalImage();
+
+document.getElementById('bengal-button').addEventListener('click', fetchBengalImage);
